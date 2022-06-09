@@ -41,7 +41,7 @@ export class TaskManipulation {
     // Update the task list
     Tasks.length = 0;
     remove.forEach((task) => {
-      tasks.push(task);
+      Tasks.push(task);
     });
 
     // We need to update the index of the remaining tasks
