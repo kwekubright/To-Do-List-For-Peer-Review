@@ -33,8 +33,17 @@ export class TaskManipulation {
   static removeTask = (e) => {
     // Get the index of the task to be removed
     const index = e.target.parentNode.parentNode.parentNode.getAttribute('data-taskindex');
-    // Remove the task from the list
-    const remove = Tasks.splice(index, 1);
+    // Remove the task from the list using filter
+    const remove = Tasks.filter((task) => {
+      return task.index !== index;
+    });
+
+    // Update the task list
+    Tasks.length = 0;
+    remove.forEach((task) => {
+      tasks.push(task);
+    });
+
     // We need to update the index of the remaining tasks
     Tasks.forEach((task, i) => {
       task.index = i;
